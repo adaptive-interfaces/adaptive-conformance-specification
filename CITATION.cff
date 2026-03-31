@@ -11,7 +11,7 @@
 cff-version: "1.2.0"
 type: software
 
-title: "adaptive-conformance-spec"
+title: "adaptive-conformance-specification"
 date-released: "2026-03-31"
 
 authors:
@@ -20,14 +20,14 @@ authors:
     orcid: "https://orcid.org/0000-0001-6165-7389"
     affiliation: "Northwest Missouri State University, USA"
 
-repository-code: "https://github.com/adaptive-interfaces/adaptive-conformance-spec"
-url: "https://github.com/adaptive-interfaces/adaptive-conformance-spec"
+repository-code: "https://github.com/adaptive-interfaces/adaptive-conformance-specification"
+url: "https://github.com/adaptive-interfaces/adaptive-conformance-specification"
 license: MIT
 
 abstract: |
-  A foundational operating specification for agents working within 
-  unfamiliar codebases or tool surfaces. 
-  Defines how to observe, infer, and conform to local patterns 
+  A foundational operating specification for agents working within
+  unfamiliar codebases or tool surfaces.
+  Defines how to observe, infer, and conform to local patterns
   before generating any artifact.
 
 keywords:
