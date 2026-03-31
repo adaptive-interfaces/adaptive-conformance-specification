@@ -1,0 +1,63 @@
+# ============================================================
+# MANIFEST.toml (Repository Intent, Scope, and Role)
+# ============================================================
+
+# REQ.UNIVERSAL: Professional open projects SHOULD include MANIFEST.toml.
+# WHY: Makes explicit the intent, scope, and role of this repository so that
+#      contributors, dependents, and automated tooling can understand boundaries
+#      without reading all source files.
+# ALT: Internal or private repositories may omit manifest metadata.
+# CUSTOM: Update repo, role, provides, and scope fields as needed.
+
+schema = "adaptive-interfaces-manifest-1"
+schema_url = "https://github.com/adaptive-interfaces/.github/blob/main/schemas/adaptive-interfaces-manifest-1.md"
+
+[meta]
+framework = "Adaptive Interfaces"
+framework_url = "https://github.com/adaptive-interfaces"
+description = "Declarative description of repository intent, scope, and role."
+purpose = "To make explicit the boundaries, responsibilities, and expectations of this skill."
+
+[repo]
+name = "adaptive-conformance-specification"
+kind = "skill"
+status = "active"
+since = "2026"
+summary = "A foundational operating specification for agents working within unfamiliar codebases or tool surfaces. Defines how to observe, infer, and conform to local patterns before generating any artifact."
+
+[role]
+layer = "foundational"
+invoked-by = [
+  "adaptive-tool-discovery",
+  "adaptive-onboarding",
+]
+invokes = []
+
+[provides]
+artifacts = [
+  "SKILL.md - the operative skill specification",
+  "evaluation/rubric.md - grading criteria for conformance quality",
+  "evaluation/scenarios/ - named test cases for skill validation",
+]
+
+[scope]
+includes = [
+  "discovery of unfamiliar codebases, tool surfaces, and conventions",
+  "inference of local patterns from observed evidence",
+  "conformance of generated artifacts to local patterns",
+  "error detection and structured reporting of failures",
+  "stopping conditions for insufficient evidence",
+  "invocation protocol for dependent skills",
+]
+
+excludes = [
+  "verification of agent understanding after conformance",
+  "tool capability mapping (see adaptive-tool-discovery)",
+  "team or project onboarding context (see adaptive-onboarding)",
+  "normative judgments about code quality or design",
+  "causal claims about codebase behavior",
+  "enforcement of external standards or best practices",
+]
+
+[citation]
+preferred = "software"
