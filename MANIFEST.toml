@@ -1,13 +1,6 @@
 # ============================================================
-# MANIFEST.toml (Repository Intent, Scope, and Role)
+# adaptive-conformance-specification/MANIFEST.toml
 # ============================================================
-
-# REQ.UNIVERSAL: Professional open projects SHOULD include MANIFEST.toml.
-# WHY: Makes explicit the intent, scope, and role of this repository so that
-#      contributors, dependents, and automated tooling can understand boundaries
-#      without reading all source files.
-# ALT: Internal or private repositories may omit manifest metadata.
-# CUSTOM: Update repo, role, provides, and scope fields as needed.
 
 schema = "adaptive-interfaces-manifest-1"
 schema_url = "https://github.com/adaptive-interfaces/.github/blob/main/schemas/adaptive-interfaces-manifest-1.md"
@@ -15,49 +8,62 @@ schema_url = "https://github.com/adaptive-interfaces/.github/blob/main/schemas/a
 [meta]
 framework = "Adaptive Interfaces"
 framework_url = "https://github.com/adaptive-interfaces"
-description = "Declarative description of repository intent, scope, and role."
-purpose = "To make explicit the boundaries, responsibilities, and expectations of this skill."
+framework_note = "Provides definitions and conventions for adaptive-interfaces manifest semantics."
+description = "Declarative claim of repository intent, scope, and role."
+purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
 
 [repo]
 name = "adaptive-conformance-specification"
-kind = "skill"
-status = "active"
-since = "2026"
-summary = "A foundational operating specification for agents working within unfamiliar codebases or tool surfaces. Defines how to observe, infer, and conform to local patterns before generating any artifact."
+kind = "foundational-skill"
+description = "Behavioral protocol defining how agents observe, infer, and conform to an environment before generating any artifact."
 
-[role]
-layer = "foundational"
-invoked-by = [
-  "adaptive-tool-discovery",
-  "adaptive-onboarding",
+[layer]
+space = "Agent Engineering"
+role = "foundational-skill"
+
+[depends]
+required = [
+
 ]
-invokes = []
+optional = [
+  "nodejs>=20",
+  "npx",
+  "uvx",
+]
 
 [provides]
 artifacts = [
-  "SKILL.md - the operative skill specification",
-  "evaluation/rubric.md - grading criteria for conformance quality",
-  "evaluation/scenarios/ - named test cases for skill validation",
+  "SKILL.md",
+  "MANIFEST.toml",
+  "DECISIONS.md",
+  "CITATION.cff",
+  "LICENSE",
+  "README.md",
+  "evaluation/rubric.md",
+  "evaluation/scenarios/",
 ]
 
 [scope]
 includes = [
-  "discovery of unfamiliar codebases, tool surfaces, and conventions",
-  "inference of local patterns from observed evidence",
-  "conformance of generated artifacts to local patterns",
-  "error detection and structured reporting of failures",
+  "foundational observation and conformance discipline for agents",
+  "six-step workflow: Discover, Interpret, Select, Execute, Validate, Conclude",
+  "evidence-first behavioral constraints",
   "stopping conditions for insufficient evidence",
   "invocation protocol for dependent skills",
+  "evaluation scenarios and rubric for conformance quality",
 ]
-
 excludes = [
-  "verification of agent understanding after conformance",
   "tool capability mapping (see adaptive-tool-discovery)",
-  "team or project onboarding context (see adaptive-onboarding)",
-  "normative judgments about code quality or design",
-  "causal claims about codebase behavior",
-  "enforcement of external standards or best practices",
+  "team context and convention capture (see adaptive-onboarding)",
+  "domain-specific behavior",
+  "post-conformance verification of agent understanding",
 ]
 
 [citation]
-preferred = "software"
+cff = "CITATION.cff"
+preferred = "repo"
+
+[traceability]
+identifier_map = "none"
+
+
