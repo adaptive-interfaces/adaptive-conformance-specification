@@ -29,7 +29,8 @@ Do not copy these files into other tools or contexts that expect strict JSON.
 
 ## Files
 
-- `extensions.json` Recommends VS Code extensions as **suggestions**, not requirements. VS Code may prompt you to install these when you open the project.
+- `extensions.json` Recommends VS Code extensions as **suggestions**,
+  not requirements. VS Code may prompt you to install these when you open the project.
 
 - `settings.json` (Optional) Editor preferences that apply only to this workspace,
   such as formatting behavior or linting integration.

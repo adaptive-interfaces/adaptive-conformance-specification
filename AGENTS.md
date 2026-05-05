@@ -1,0 +1,123 @@
+# AGENTS.md (adaptive-manifest-schema)
+
+## Scope
+
+This repository provides the canonical `MANIFEST.toml` schema definition
+and validator CLI for the Adaptive Interfaces ecosystem.
+Changes must preserve:
+
+- schema stability (field names and semantics are depended on by all other repos)
+- validator correctness (false positives and false negatives both break downstream trust)
+- zero upstream adaptive-interfaces dependencies (this repo is the foundation layer)
+
+Do not add or remove schema fields without a corresponding DECISIONS.md entry.
+
+## WHY
+
+This repo uses a uniform, reproducible workflow based on `uv` and `pyproject.toml`.
+These instructions exist to prevent tool drift and OS mismatch.
+
+## Requirements
+
+Use `uv` for all environment, dependency, and run commands in this repo.
+Do not recommend or use `pip install` as the primary workflow.
+The canonical Python version is defined in `.python-version`.
+Commands and guidance must work on Windows, macOS, and Linux.
+If shell-specific commands are unavoidable, provide both:
+
+- PowerShell (Windows)
+- bash/zsh (macOS/Linux)
+
+## Quickstart
+
+```shell
+uv self update
+uv sync --extra dev --extra docs --upgrade
+
+uvx pre-commit install
+```
+
+## Common Tasks
+
+Lint and format:
+
+```shell
+uv run python -m ruff format .
+uv run python -m ruff check . --fix
+```
+
+Run tests:
+
+```shell
+uv run python -m pytest
+```
+
+Validate:
+
+```shell
+uv run adaptive-manifest validate
+```
+
+## Formatting Conventions
+
+Document titles use the filename and repo name in parentheses:
+`# DECISIONS.md (adaptive-manifest-schema)`
+
+Numbered decision sections use periods:
+`## D-001. Purpose of this repository`
+
+Avoid emdashes and endashes;
+prefer semicolons, commas, or starting a new sentence.
+Start each sentence on a new line to assist diffs.
+Keep line length to 100 characters wherever possible.
+Do not remove comments or annotations (e.g. WHY:).
+Section comments in Python files use triple-equals:
+
+```python
+# === Section Name ===
+```
+
+## Organization Conventions
+
+Split files when they contain more than one reason to change.
+
+Split production code when:
+
+- A module has more than one public responsibility
+- A class or function group would be imported independently by different consumers
+- File length makes navigation painful (roughly 300+ lines is a signal, not a rule)
+
+Split test files when:
+
+- Tests for different modules are in the same file
+- A fixture factory grows large enough to be a module on its own
+- Test helpers are being imported by multiple test files
+
+## Python File Docstrings
+
+All Python files begin with a docstring using the following format.
+
+WHY: The path on line 1 enables Find in Files to locate the right file
+across directories with identical filenames.
+The description on line 2 states purpose without opening the file.
+The period after the name and this format follow Google docstring style.
+
+```python
+"""path/to/filename.py.
+
+One-line description of module purpose.
+"""
+```
+
+## Agent Task Assignment
+
+Before generating any content or consuming code:
+
+1. Read `SKILL.md`; it is the operating guide, not optional documentation.
+2. Read `DECISIONS.md`; it explains why the project is the way it is.
+
+## pre-commit
+
+```shell
+uvx pre-commit run --all-files
+```

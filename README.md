@@ -91,7 +91,6 @@ adaptive-conformance-specification/
   SKILL.md              the specification itself
   MANIFEST.toml         repository intent, scope, and role
   DECISIONS.md          design history and rationale
-  LICENSE               MIT
   evaluation/
     rubric.md           grading criteria for conformance quality
     scenarios/          public test cases
@@ -104,10 +103,42 @@ Format Markdown files with Prettier extension.
 Then run:
 
 ```shell
-npx markdownlint-cli2 "**/*.md"
+npx markdownlint-cli2 --fix
 
 uvx skillcheck SKILL.md --min-desc-score 75
 ```
+
+## Agent Usage
+
+This repository is structured for agent-assisted maintenance.
+Read these files in order before generating any artifact:
+
+1. [`MANIFEST.toml`](./MANIFEST.toml) - repository contract and agent configuration
+2. [`SKILL.md`](./SKILL.md) - operating guide and interface contract
+3. [`DECISIONS.md`](./DECISIONS.md) - design rationale
+4. [`AGENTS.md`](./AGENTS.md) - workflow requirements
+5. [`AGENT_CONDUCT.md`](./AGENT_CONDUCT.md) - behavioral constraints
+
+## Working with Agents
+
+Agents may accumulate context drift over long sessions.
+Rereading may anchor them back to the repo's constraints.
+On long context windows, asking the agent to reread key documents may help.
+uvx skillcheck SKILL.md --min-desc-score 75
+
+```text
+Please reread MANIFEST.toml, SKILL.md, and AGENTS.md
+before continuing.
+```
+
+## Documentation
+
+[Documentation Site](https://adaptive-interfaces.github.io/adaptive-manifest-schema/)
+
+## See also
+
+- [CHANGELOG.md](./CHANGELOG.md)
+- [CITATION.cff](./CITATION.cff)
 
 ## License
 
